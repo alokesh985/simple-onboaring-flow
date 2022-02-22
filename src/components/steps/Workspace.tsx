@@ -8,6 +8,16 @@ const Workspace: React.FC = () => {
       <span className={style.subHeading}>
         You can always create another workspace later.
       </span>
+      <div className={style.formContainer}>
+        <div className={style.field}>
+          <text className={style.label}>Workspace Name</text>
+          <input className={style.inputField} placeholder="Eden" />
+        </div>
+        <div className={style.field}>
+          <text className={style.label}>Workspace URL</text>
+          <input className={style.inputField} placeholder="Steve" />
+        </div>
+      </div>
     </div>
   );
 };

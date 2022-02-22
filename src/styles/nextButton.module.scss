@@ -10,3 +10,8 @@
   font-family: $font;
   cursor: pointer;
 }
+
+.nextButton:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}

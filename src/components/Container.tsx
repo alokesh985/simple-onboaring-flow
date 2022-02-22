@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./../styles/container.module.scss";
 import Header from "./Header";
 import StepProgressBar from "./StepProgressBar";
@@ -10,6 +10,15 @@ import NextButton from "./NextButton";
 
 const Container: React.FC = () => {
   const [currentStep, updateCurrentStep] = useState(1);
+  const [fullName, updateFullName] = useState("");
+  const [displayName, updateDisplayName] = useState("");
+  const [validation, updateValidation] = useState(false);
+
+  useEffect(() => {
+    if (fullName && displayName) {
+      updateValidation(true);
+    }
+  }, [fullName, displayName]);
 
   return (
     <div className={style.mainContainer}>
@@ -19,7 +28,10 @@ const Container: React.FC = () => {
       </div>
       <div className={style.mainContent}>
         {currentStep === 1 ? (
-          <Name />
+          <Name
+            handleDisplayNameChange={updateDisplayName}
+            handleFullNameChange={updateFullName}
+          />
         ) : currentStep === 2 ? (
           <Workspace />
         ) : currentStep === 3 ? (
@@ -28,7 +40,11 @@ const Container: React.FC = () => {
           <Complete />
         )}
       </div>
-      <NextButton handleNext={updateCurrentStep} currentStage={currentStep} />
+      <NextButton
+        handleNext={updateCurrentStep}
+        currentStage={currentStep}
+        validated={validation}
+      />
     </div>
   );
 };
