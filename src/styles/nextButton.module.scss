@@ -1,0 +1,12 @@
+@import "_common.scss";
+
+.nextButton {
+  width: 30%;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(102, 77, 229);
+  color: #fff;
+  font-family: $font;
+  cursor: pointer;
+}

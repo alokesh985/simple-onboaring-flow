@@ -1,0 +1,5 @@
+@import "_stepsCommon.scss";
+
+.container {
+  @include container;
+}

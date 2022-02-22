@@ -1,0 +1,15 @@
+@import "_common.scss";
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: $font;
+  margin: 20px;
+  .headerText {
+    font-size: 28px;
+    font-weight: 800;
+    margin-top: 6px;
+  }
+}
