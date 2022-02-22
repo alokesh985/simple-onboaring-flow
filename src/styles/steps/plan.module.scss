@@ -2,4 +2,32 @@
 
 .container {
   @include container;
+  font-family: $font;
+  .plansContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 400px;
+    margin: 40px 0px;
+    .plan {
+      height: 180px;
+      width: 150px;
+      border: 1px solid #ecedf0;
+      border-radius: 5px;
+      text-align: left;
+      padding: 20px;
+      cursor: pointer;
+      .planHeading {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .planDetails {
+        font-size: 15px;
+        color: #868e9f;
+      }
+    }
+    .selectedPlan {
+      border: 1px solid #664de4;
+    }
+  }
 }

@@ -25,9 +25,9 @@ const StepProgressBar: React.FC<Props> = (props) => {
       filledBackground="rgb(102, 77, 229)"
       height="2px"
     >
-      {steps.map(() => {
+      {steps.map((num) => {
         return (
-          <Step>
+          <Step key={num}>
             {({ accomplished, index }) => (
               <div
                 className={`${style.indexedStep} ${
