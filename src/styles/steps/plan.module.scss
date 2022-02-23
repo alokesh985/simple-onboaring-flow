@@ -9,6 +9,9 @@
     justify-content: space-between;
     width: 400px;
     margin: 40px 0px;
+    @media screen and (max-width: $mobileWidth) {
+      width: 350px;
+    }
     .plan {
       height: 180px;
       width: 150px;
@@ -17,6 +20,9 @@
       text-align: left;
       padding: 20px;
       cursor: pointer;
+      @media screen and (max-width: $mobileWidth) {
+        margin: 5px;
+      }
       .planHeading {
         font-size: 18px;
         font-weight: bold;

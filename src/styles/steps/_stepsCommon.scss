@@ -29,14 +29,17 @@
         margin: 5px 0px;
       }
       .inputField {
-        width: 20vw;
-        height: 4vh;
+        width: 400px;
+        height: 35px;
         border: 1px solid lightgray;
         border-radius: 5px;
         padding: 8px;
         margin: 0px 0px 20px 0px;
         :focus {
           border: 0.5px solid #87ceeb;
+        }
+        @media screen and (max-width: $mobileWidth) {
+          width: 350px;
         }
       }
     }

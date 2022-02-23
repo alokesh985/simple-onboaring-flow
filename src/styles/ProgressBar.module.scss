@@ -11,6 +11,10 @@
   justify-content: center;
   align-items: center;
   font-family: $font;
+  @media screen and (max-width: $mobileWidth) {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .indexedStep.accomplished {

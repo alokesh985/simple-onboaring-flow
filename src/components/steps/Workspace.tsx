@@ -12,18 +12,17 @@ const customStyle: any = {
     flexDirection: "row",
   },
   prefilledPart: {
-    height: "4vh",
-    width: "8vw",
+    width: "135px",
     cursor: "not-allowed",
   },
   inputField: {
-    height: "4vh",
-    width: "12vw",
+    width: window.innerWidth <= 450 ? "200px" : "250px",
   },
   commonField: {
     borderRadius: "5px",
     border: "1px solid lightgray",
     padding: "8px",
+    height: "35px",
   },
   optionalText: {
     color: "#cdd1d9",
