@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import style from "../../styles/steps/plan.module.scss";
 
-const Plan: React.FC = () => {
+interface Props {
+  handleUpdatePlan: Function;
+}
+
+const Plan: React.FC<Props> = ({ handleUpdatePlan }) => {
   const [selectedPlan, updateSelectedPlan] = useState("single");
+
+  const onClickPlan = (plan: string) => {
+    updateSelectedPlan(plan);
+    handleUpdatePlan(plan);
+  };
+
   return (
     <div className={style.container}>
       <h2 className={style.heading}>How are you planning to use Eden?</h2>
@@ -14,7 +24,7 @@ const Plan: React.FC = () => {
           className={`${style.plan} ${
             selectedPlan === "single" ? style.selectedPlan : ``
           }`}
-          onClick={() => updateSelectedPlan("single")}
+          onClick={() => onClickPlan("single")}
         >
           <img src="/single-person.png" />
           <p className={style.planHeading}>For myself</p>
@@ -26,7 +36,7 @@ const Plan: React.FC = () => {
           className={`${style.plan} ${
             selectedPlan === "multiple" ? style.selectedPlan : ``
           }`}
-          onClick={() => updateSelectedPlan("multiple")}
+          onClick={() => onClickPlan("multiple")}
         >
           <img src="/multiple-people.png" />
           <p className={style.planHeading}>With my team</p>

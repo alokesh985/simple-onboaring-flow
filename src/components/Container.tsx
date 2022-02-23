@@ -13,12 +13,41 @@ const Container: React.FC = () => {
   const [fullName, updateFullName] = useState("");
   const [displayName, updateDisplayName] = useState("");
   const [validation, updateValidation] = useState(false);
+  const [workspaceName, updateWorkspaceName] = useState("");
+  const [workspaceURL, updateWorkspaceURL] = useState("");
+  const [planType, updatePlanType] = useState("");
 
+  // Validation for first page
   useEffect(() => {
     if (fullName && displayName) {
       updateValidation(true);
+    } else {
+      updateValidation(false);
     }
   }, [fullName, displayName]);
+
+  // Validation for second page
+  useEffect(() => {
+    if (workspaceName) {
+      updateValidation(true);
+    } else {
+      updateValidation(false);
+    }
+  }, [workspaceName]);
+
+  // Disabling next button when we change page
+  useEffect(() => {
+    if (!fullName || !displayName || !workspaceName) updateValidation(false);
+  }, [currentStep]);
+
+  // Validation for plan type
+  useEffect(() => {
+    if (planType) {
+      updateValidation(true);
+    } else {
+      updateValidation(false);
+    }
+  }, [planType]);
 
   return (
     <div className={style.mainContainer}>
@@ -33,11 +62,14 @@ const Container: React.FC = () => {
             handleFullNameChange={updateFullName}
           />
         ) : currentStep === 2 ? (
-          <Workspace />
+          <Workspace
+            onWorkspaceNameChange={updateWorkspaceName}
+            onWorkspaceURLChange={updateWorkspaceURL}
+          />
         ) : currentStep === 3 ? (
-          <Plan />
+          <Plan handleUpdatePlan={updatePlanType} />
         ) : (
-          <Complete />
+          <Complete displayName={displayName} />
         )}
       </div>
       <NextButton
